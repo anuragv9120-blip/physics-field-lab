@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b16">
+  <meta name="application-name" content="Physics Field Lab">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="description" content="An interactive JEE Main physics field lab: explore all 20 syllabus units through simulations, clear explanations and real-world applications.">
+  <title>Physics Field Lab — JEE Main</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Physics Field Lab home">
+        <span class="brand-mark" aria-hidden="true"><span>Φ</span></span>
+        <span class="brand-copy"><strong>FIELD<span>LAB</span></strong><small>JEE MAIN · PHYSICS</small></span>
+      </a>
+      <div class="topbar-center"><span class="live-dot"></span> 20 interactive chapters <span class="topbar-divider">/</span> built from your syllabus</div>
+      <div class="topbar-right">
+        <button class="app-action-button" id="share-button" type="button" title="Share the Physics Field Lab"><span aria-hidden="true">↗</span> Share</button>
+        <button class="app-action-button" id="install-button" type="button" title="Install the Physics Field Lab"><span aria-hidden="true">＋</span> Install</button>
+        <span class="topbar-label">YOUR STUDY SPACE</span><span class="avatar" aria-hidden="true">A</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="welcome">
+        <div class="welcome-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> THE PHYSICS FIELD LAB <span class="eyebrow-year">2025 SYLLABUS</span></div>
+          <h1>Make every idea<br><span>move.</span></h1>
+          <p>Explore the physics behind the equations. Change a variable, watch the system respond, and connect every concept to the world around you.</p>
+          <a class="welcome-link" href="#learning-space">Enter the lab <span>↓</span></a>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+          <div class="art-core"><span>Φ</span></div>
+          <div class="art-particle particle-a"></div><div class="art-particle particle-b"></div><div class="art-particle particle-c"></div>
+          <span class="art-note note-a">F = ma</span><span class="art-note note-b">E = mc²</span><span class="art-note note-c">λ = h / p</span>
+        </div>
+        <div class="welcome-foot"><span>01 — 20</span><span class="foot-rule"></span><span>YOUR PHYSICS, IN MOTION</span></div>
+      </section>
+
+      <section class="learning-space" id="learning-space">
+        <aside class="chapter-rail">
+          <div class="rail-head"><div><span class="section-overline">THE SYLLABUS</span><h2>Chapters</h2></div><span class="chapter-total" id="chapter-total">20</span></div>
+          <label class="search-wrap"><span class="search-icon" aria-hidden="true">⌕</span><input id="chapter-search" type="search" placeholder="Find a chapter…" autocomplete="off"><kbd>/</kbd></label>
+          <div class="rail-progress">
+            <div class="progress-top"><span>YOUR PROGRESS</span><strong id="progress-copy">0 / 20 explored</strong></div>
+            <div class="progress-track"><span id="progress-fill"></span></div>
+            <button class="reset-all-button" id="reset-all-button" type="button" title="Clear explored chapters and reset all simulation values"><span aria-hidden="true">↺</span> Reset all</button>
+          </div>
+          <nav class="chapter-list" id="chapter-list" aria-label="Physics chapters"></nav>
+          <div class="rail-note"><span class="note-icon">✳</span><p><strong>Curiosity counts.</strong><br>Chapters you open are saved on this device.</p></div>
+        </aside>
+
+        <section class="lesson" id="lesson" aria-live="polite">
+          <div class="lesson-heading">
+            <div class="lesson-title-wrap">
+              <div class="breadcrumb"><span>PHYSICS</span><span class="crumb-slash">/</span><span id="breadcrumb-unit">UNIT 01</span><span class="crumb-slash">/</span><span id="breadcrumb-name">FOUNDATIONS</span></div>
+              <h2 id="chapter-title">Units &amp; Measurements</h2>
+              <p id="chapter-description"></p>
+            </div>
+            <button class="mark-button" id="mark-button" type="button" aria-pressed="false"><span class="checkmark">✓</span><span id="mark-label">Mark explored</span></button>
+          </div>
+
+          <div class="simulation-card">
+            <div class="sim-header">
+              <div><div class="sim-overline"><span class="live-dot"></span> INTERACTIVE MODEL <span class="sim-sep">·</span><span id="sim-unit">UNIT 01</span></div><h3 id="sim-title">The measurement bench</h3></div>
+              <div class="sim-actions">
+                <button id="play-button" class="play-button" type="button" aria-pressed="true" title="Pause simulation"><span aria-hidden="true">Ⅱ</span><span>Pause</span></button>
+                <button id="reset-button" class="reset-button" type="button" title="Reset simulation"><span aria-hidden="true">↺</span><span>Reset</span></button>
+              </div>
+            </div>
+            <div class="sim-stage">
+              <canvas id="physics-canvas" aria-label="Interactive physics simulation"></canvas>
+              <div class="canvas-badge"><span class="badge-pulse"></span><span id="canvas-label">LIVE MODEL</span></div>
+              <div class="canvas-caption" id="canvas-caption">Adjust a variable to see the system respond.</div>
+            </div>
+            <div class="sim-controls" id="sim-controls"></div>
+            <div class="sim-readouts" id="sim-readouts"></div>
+            <div class="sim-insight"><span class="insight-star">✳</span><p><strong>What to notice</strong><span id="sim-insight-copy">A measurement always has a resolution. A finer scale lets us report a more precise value.</span></p></div>
+          </div>
+
+          <section class="concept-section">
+            <div class="section-heading"><div><span class="section-overline">BEYOND THE SIMULATION</span><h3>Concepts in this chapter</h3></div><span class="topic-count" id="topic-count"></span></div>
+            <div class="topic-list" id="topic-list"></div>
+            <details class="coverage-panel">
+              <summary><span class="coverage-star">✳</span><span><strong>Full syllabus checklist</strong><small>See every point listed for this unit in your source PDF</small></span><span class="coverage-toggle">+</span></summary>
+              <div class="coverage-list" id="coverage-list"></div>
+            </details>
+          </section>
+          <footer class="lesson-footer"><span>SOURCE: JEE MAIN PAPER 1 · PHYSICS · 2025</span><span>LEARN BY SEEING IT <span class="footer-spark">✳</span></span></footer>
+        </section>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
